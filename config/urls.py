@@ -1,0 +1,12 @@
+from django.contrib import admin
+from django.urls import path, include
+from app.urls import urlpatterns as app
+from account.urls import urlpatterns as auth
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/v1/', include(app)),
+    path('api/v1/auth/', include(auth)),
+    path('api/v1/drf-auth/', include('rest_framework.urls')),
+]
